@@ -1,0 +1,45 @@
+class Stack {
+private:
+	int size;
+	T* stack;
+	int i;
+public:
+	Stack() {
+		this->size = 20000;//размер стека
+		stack = new T[size];
+		i = 0;//для проверки пустоты стека
+	};
+	T operator [](int i) {
+		return stack[i];
+	}
+	void push(T value) {
+		if (i < size) {
+			stack[++i] = value;
+		}
+	}
+	void pop() {
+		if (i == 0)
+			return; // стек пуст
+		i--;
+	}
+	void printStack() {
+		for (int j = i; j > 0; j--) {
+			cout << stack[j] << endl;
+		}
+	}
+	bool empty() {
+		if (i == 0) {
+			return false;
+		}
+		return true;
+	}
+	int count() {
+		return i;
+	}
+	T Head() {
+		return  stack[i];
+	}
+	~Stack() {
+		delete[]stack;
+	}
+};
